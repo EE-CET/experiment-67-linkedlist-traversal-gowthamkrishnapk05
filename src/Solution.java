@@ -4,20 +4,45 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        // TODO: Read the integer N
-        
-        // TODO: Create a LinkedList of Integers
-        
-        // TODO: Read N integers and add them to the LinkedList
-        
-        // TODO: Create a ListIterator for the LinkedList
-        
-        // TODO: Traverse the list in the forward direction and print the elements
-        
-        // TODO: Traverse the list in the backward direction and print the elements
-        
-        
+        Scanner sc = new Scanner(System.in);
+
+        // Read N (the number of elements)
+        if (!sc.hasNextInt()) return;
+        int n = sc.nextInt();
+
+        LinkedList<Integer> list = new LinkedList<>();
+
+        // Add N integers to the list
+        for (int i = 0; i < n; i++) {
+            if (sc.hasNextInt()) {
+                list.add(sc.nextInt());
+            }
+        }
+
+        // Initialize the ListIterator
+        ListIterator<Integer> it = list.listIterator();
+
+        // 1. Forward Traversal
+        System.out.print("Forward: ");
+        while (it.hasNext()) {
+            System.out.print(it.next());
+            if (it.hasNext()) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+
+        // 2. Backward Traversal
+        // The iterator 'it' is currently at the end of the list
+        System.out.print("Backward: ");
+        while (it.hasPrevious()) {
+            System.out.print(it.previous());
+            if (it.hasPrevious()) {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+
+        sc.close();
     }
 }
